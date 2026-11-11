@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1565c0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 25px;
+            background: #1565c0;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+
+        @media(max-width: 550px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Heart Disease Prediction</h1>
+
+    <p style="text-align:center;">
+        Enter the required patient information below.
+    </p>
+
+    <form action="/" method="POST">
+
+        <div class="grid">
+
+            <div>
+                <label>Age</label>
+                <input type="number" name="age" min="1" max="120" required>
+            </div>
+
+            <div>
+                <label>Sex (0 = Female, 1 = Male)</label>
+                <input type="number" name="sex" min="0" max="1" required>
+            </div>
+
+            <div>
+                <label>Chest Pain Type (0-3)</label>
+                <input type="number" name="cp" min="0" max="3" required>
+            </div>
+
+            <div>
+                <label>Resting Blood Pressure</label>
+                <input type="number" name="trestbps" min="1" required>
+            </div>
+
+            <div>
+                <label>Cholesterol</label>
+                <input type="number" name="chol" min="1" required>
+            </div>
+
+            <div>
+                <label>Fasting Blood Sugar (0 or 1)</label>
+                <input type="number" name="fbs" min="0" max="1" required>
+            </div>
+
+            <div>
+                <label>Resting ECG (0-2)</label>
+                <input type="number" name="restecg" min="0" max="2" required>
+            </div>
+
+            <div>
+                <label>Maximum Heart Rate</label>
+                <input type="number" name="thalach" min="1" required>
+            </div>
+
+            <div>
+                <label>Exercise-Induced Angina (0 or 1)</label>
+                <input type="number" name="exang" min="0" max="1" required>
+            </div>
+
+            <div>
+                <label>Oldpeak</label>
+                <input type="number" name="oldpeak" step="0.1" required>
+            </div>
+
+            <div>
+                <label>Slope (0-2)</label>
+                <input type="number" name="slope" min="0" max="2" required>
+            </div>
+
+            <div>
+                <label>Major Vessels (ca)</label>
+                <input type="number" name="ca" min="0" max="4" required>
+            </div>
+
+            <div>
+                <label>Thalassemia (thal)</label>
+                <input type="number" name="thal" min="0" max="3" required>
+            </div>
+
+        </div>
+
+        <button type="submit">Predict</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

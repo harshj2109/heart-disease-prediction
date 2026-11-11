@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            text-align: center;
+            padding: 50px 15px;
+        }
+
+        .result-box {
+            max-width: 550px;
+            margin: auto;
+            padding: 35px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1565c0;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .warning {
+            color: #d32f2f;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #1565c0;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="result-box">
+
+    <h1>Heart Disease Prediction</h1>
+
+    {% if final_result == 0 %}
+        <h2 class="success">No Heart Disease Detected</h2>
+    {% elif final_result == 1 %}
+        <h2 class="warning">Heart Disease Detected</h2>
+    {% else %}
+        <h2>Unexpected prediction result</h2>
+    {% endif %}
+
+    <p>Model prediction: {{ final_result }}</p>
+
+    <a href="/">Try Another Prediction</a>
+
+    <p style="font-size:12px;color:#777;margin-top:25px;">
+        This is an experimental machine learning prediction,
+        not a medical diagnosis.
+    </p>
+
+</div>
+
+</body>
+</html>
