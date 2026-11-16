@@ -128,16 +128,21 @@ if submit:
 
             result = int(prediction[0])
 
-        # Display result
-        st.divider()
-        st.subheader("Prediction Result")
+        
+# Display result
+st.divider()
+st.subheader("Prediction Result")
 
-        if result == 0:
-            st.success("Model Prediction: Class 0")
-        elif result == 1:
-            st.warning("Model Prediction: Class 1")
-        else:
-            st.info(f"Model Prediction: {result}")
+if result == 0:
+    st.success("✅ Heart Disease Not Predicted")
+
+elif result == 1:
+    st.error("⚠️ Heart Disease Predicted")
+
+else:
+    st.info(f"Unexpected model output: {result}")
+
+        
 
         st.caption(
             "Class labels should be interpreted using your "
