@@ -16,6 +16,7 @@ st.set_page_config(
 
 # Application title
 st.title("❤️ Heart Disease Prediction System")
+
 st.write(
     "Enter the patient details below to generate "
     "a machine learning prediction."
@@ -91,10 +92,11 @@ with st.form("prediction_form"):
     )
 
 
-# Prediction logic - follows your original app.py
+# Prediction logic
 if submit:
 
     try:
+
         with st.spinner("Generating prediction..."):
 
             # Create CustomData object
@@ -117,10 +119,14 @@ if submit:
             # Convert inputs into DataFrame
             final_data = data.get_data_as_dataframe()
 
+            # Display input data
             st.write("### Input Data")
-            st.dataframe(final_data, use_container_width=True)
+            st.dataframe(
+                final_data,
+                use_container_width=True
+            )
 
-            # Load model and make prediction
+            # Load prediction pipeline
             predict_pipeline = PredictPipeline()
 
             # Generate prediction
@@ -128,32 +134,40 @@ if submit:
 
             result = int(prediction[0])
 
-        
-# Display result
-st.divider()
-st.subheader("Prediction Result")
+        # Display result ONLY after successful prediction
+        st.divider()
+        st.subheader("Prediction Result")
 
-if result == 0:
-    st.success("✅ Heart Disease Not Predicted")
+        if result == 0:
 
-elif result == 1:
-    st.error("⚠️ Heart Disease Predicted")
+            st.success(
+                "✅ Heart Disease Not Predicted"
+            )
 
-else:
-    st.info(f"Unexpected model output: {result}")
+        elif result == 1:
 
-        
+            st.error(
+                "⚠️ Heart Disease Predicted"
+            )
+
+        else:
+
+            st.info(
+                f"Unexpected model output: {result}"
+            )
 
         st.caption(
-            "Class labels should be interpreted using your "
-            "training dataset's target definition."
+            "This result represents the machine learning "
+            "model's prediction, not a medical diagnosis."
         )
 
     except Exception as e:
+
         st.error("Prediction failed!")
         st.exception(e)
 
 
+# Medical disclaimer
 st.divider()
 
 st.warning(
