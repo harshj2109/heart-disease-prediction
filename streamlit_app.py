@@ -21,270 +21,147 @@ st.set_page_config(
 
 
 # =====================================================
-# 2. CUSTOM DARK THEME
+# 2. CUSTOM CSS
 # =====================================================
 
 st.markdown("""
 <style>
 
-/* Main application background */
+/* Main application */
 .stApp {
     background-color: #0B1220;
     color: #E5EDF7;
 }
 
-/* Hide unnecessary Streamlit header */
-header[data-testid="stHeader"] {
-    background: transparent;
-}
-
-/* Main content spacing */
+/* Main container */
 .block-container {
-    max-width: 1250px;
+    max-width: 1200px;
     padding-top: 2rem;
     padding-bottom: 3rem;
 }
 
-/* General text */
-.stMarkdown,
-.stMarkdown p,
-.stMarkdown li {
+/* Text */
+.stApp p {
     color: #C5D2E3;
 }
 
 /* Headings */
-h1, h2, h3 {
-    color: #F1F5F9 !important;
+.stApp h1,
+.stApp h2,
+.stApp h3 {
+    color: #F1F5F9;
 }
 
 /* Sidebar */
 [data-testid="stSidebar"] {
     background-color: #111D30;
-    border-right: 1px solid #243750;
+    border-right: 1px solid #263A54;
 }
 
-[data-testid="stSidebar"] .stMarkdown,
-[data-testid="stSidebar"] p,
-[data-testid="stSidebar"] li {
-    color: #C5D2E3 !important;
+/* Sidebar text */
+[data-testid="stSidebar"] p {
+    color: #C5D2E3;
 }
 
-/* Hero section */
-.hero {
-    background: linear-gradient(
-        120deg,
-        #142A43,
-        #103D55
-    );
-    border: 1px solid #24536A;
-    border-radius: 18px;
-    padding: 32px;
-    margin-bottom: 28px;
+/* Hero container */
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    border-color: #2A405B;
 }
 
-.hero-title {
-    color: #FFFFFF !important;
-    font-size: 34px;
-    font-weight: 800;
-    margin: 0 0 10px 0;
-}
-
-.hero-subtitle {
-    color: #B9DCEB !important;
-    font-size: 15px;
-    margin: 0;
-    line-height: 1.7;
-}
-
-.hero-tag {
-    display: inline-block;
-    background: #16445B;
-    color: #63D9E8;
-    border: 1px solid #26758A;
-    border-radius: 30px;
-    padding: 6px 13px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-}
-
-/* Section heading */
-.section-heading {
-    color: #E8F3FC !important;
-    font-size: 21px;
-    font-weight: 750;
-    margin-bottom: 5px;
-}
-
-.section-description {
-    color: #91A6BD !important;
-    font-size: 13px;
-    margin-bottom: 18px;
-}
-
-/* Input labels */
-.stApp label {
-    color: #C9D8E8 !important;
-    font-weight: 600 !important;
-}
-
-/* Input boxes */
-.stApp div[data-baseweb="input"] {
-    background-color: #17263B;
-    border: 1px solid #344A65;
-    border-radius: 9px;
-}
-
-.stApp div[data-baseweb="input"]:focus-within {
-    border-color: #25C4D8;
-    box-shadow: 0 0 0 1px #25C4D8;
-}
-
-.stApp div[data-baseweb="input"] input {
-    color: #FFFFFF !important;
-    background-color: transparent !important;
-    -webkit-text-fill-color: #FFFFFF !important;
-}
-
-/* Dropdowns */
-.stApp div[data-baseweb="select"] > div {
-    background-color: #17263B !important;
-    border-color: #344A65 !important;
-    border-radius: 9px;
-    color: #FFFFFF !important;
-}
-
-.stApp div[data-baseweb="select"] * {
-    color: #FFFFFF !important;
-}
-
-/* Dropdown popup */
-div[data-baseweb="popover"] {
-    background-color: #17263B !important;
-}
-
-div[data-baseweb="menu"] {
-    background-color: #17263B !important;
-}
-
-div[data-baseweb="menu"] li {
-    color: #FFFFFF !important;
-}
-
-/* Form border */
+/* Form */
 [data-testid="stForm"] {
     background-color: #111D30;
     border: 1px solid #263A54;
     border-radius: 16px;
-    padding: 25px;
+    padding: 24px;
+}
+
+/* Labels */
+.stApp label {
+    color: #D5E2EF !important;
+}
+
+/* Number inputs */
+.stApp input {
+    color: #FFFFFF !important;
+}
+
+/* Input fields */
+.stApp div[data-baseweb="input"] {
+    background-color: #17263B;
+    border-color: #344A65;
+}
+
+/* Select boxes */
+.stApp div[data-baseweb="select"] > div {
+    background-color: #17263B;
+    border-color: #344A65;
 }
 
 /* Buttons */
-.stFormSubmitButton button,
-.stButton button {
-    background: #16B8CC !important;
-    color: #071522 !important;
-    border: none !important;
-    border-radius: 10px !important;
-    height: 48px;
-    font-weight: 750 !important;
-    transition: all 0.2s ease;
+.stButton button,
+.stFormSubmitButton button {
+    background-color: #16B8CC;
+    color: #071522;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    min-height: 46px;
 }
 
-.stFormSubmitButton button:hover,
-.stButton button:hover {
-    background: #43D5E4 !important;
-    color: #071522 !important;
-    border: none !important;
+.stButton button:hover,
+.stFormSubmitButton button:hover {
+    background-color: #43D5E4;
+    color: #071522;
+    border: none;
 }
 
 /* Divider */
 hr {
-    border-color: #293B53 !important;
+    border-color: #293B53;
 }
 
-/* Result cards */
-.result-card {
-    border-radius: 16px;
-    padding: 30px;
-    margin: 20px 0;
-    text-align: center;
-}
-
-.result-negative {
-    background-color: #102E2C;
-    border: 1px solid #238B79;
-}
-
-.result-positive {
-    background-color: #382329;
-    border: 1px solid #B85B68;
-}
-
-.result-icon {
-    font-size: 42px;
-    margin-bottom: 12px;
-}
-
-.result-title {
-    font-size: 25px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.result-description {
-    color: #D2DCE8 !important;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* Information cards */
-.info-card {
-    background: #14243A;
+/* Metric cards */
+[data-testid="stMetric"] {
+    background-color: #14243A;
     border: 1px solid #2A405B;
     border-radius: 12px;
-    padding: 18px;
-    height: 100%;
+    padding: 15px;
 }
 
-.info-label {
-    color: #8FA8C2 !important;
-    font-size: 12px;
-    margin-bottom: 7px;
+[data-testid="stMetricLabel"] {
+    color: #A9BDD2;
 }
 
-.info-value {
-    color: #42D3E2 !important;
-    font-size: 18px;
-    font-weight: 750;
+[data-testid="stMetricValue"] {
+    color: #43D5E4;
+}
+
+/* Expanders */
+[data-testid="stExpander"] {
+    background-color: #111D30;
+    border: 1px solid #263A54;
+    border-radius: 10px;
+}
+
+/* Alerts */
+.stAlert {
+    border-radius: 12px;
 }
 
 /* Footer */
-.footer {
-    text-align: center;
-    color: #8296AC !important;
-    font-size: 12px;
-    line-height: 1.8;
-    padding: 25px 0 10px;
+footer {
+    visibility: hidden;
 }
 
-/* Mobile responsiveness */
+/* Mobile */
 @media (max-width: 768px) {
-    .hero {
-        padding: 23px;
-    }
-
-    .hero-title {
-        font-size: 26px;
+    .block-container {
+        padding: 1rem;
     }
 
     [data-testid="stForm"] {
-        padding: 15px;
-    }
-
-    .result-title {
-        font-size: 21px;
+        padding: 14px;
     }
 }
 
@@ -298,16 +175,13 @@ hr {
 
 with st.sidebar:
 
-    st.markdown(
-        "<h2 style='color:#43D5E4;'>❤️ CardioCare</h2>",
-        unsafe_allow_html=True
-    )
+    st.title("❤️ CardioCare")
 
-    st.caption("HEART DISEASE PREDICTION SYSTEM")
+    st.caption("HEART DISEASE PREDICTION")
 
     st.divider()
 
-    st.markdown("### About the Project")
+    st.subheader("About Project")
 
     st.write(
         "CardioCare is a machine learning application "
@@ -317,25 +191,25 @@ with st.sidebar:
 
     st.divider()
 
-    st.markdown("### Technology Stack")
+    st.subheader("Technology Stack")
 
     st.markdown("""
-    - 🐍 Python
-    - 🧠 Scikit-learn
-    - 📊 Pandas
-    - ⚡ Streamlit
-    - 🔬 Support Vector Classifier
+    - Python
+    - Streamlit
+    - Pandas
+    - Scikit-learn
+    - Support Vector Classifier
     """)
 
     st.divider()
 
-    st.markdown("### Model Information")
+    st.subheader("Model Information")
 
     st.write("**Algorithm:** SVC")
 
     st.write("**Input Features:** 13")
 
-    st.write("**Prediction:** Binary Classification")
+    st.write("**Task:** Binary Classification")
 
     st.divider()
 
@@ -346,41 +220,32 @@ with st.sidebar:
 # 4. HERO SECTION
 # =====================================================
 
-st.markdown("""
-<div class="hero">
+with st.container(border=True):
 
-    <div class="hero-tag">
-        MACHINE LEARNING • HEALTHCARE
-    </div>
+    st.caption("MACHINE LEARNING  •  HEALTHCARE")
 
-    <div class="hero-title">
-        ❤️ Heart Disease Prediction
-    </div>
+    st.title("❤️ Heart Disease Prediction")
 
-    <p class="hero-subtitle">
-        An intelligent prediction system powered by
-        Machine Learning. Enter patient health parameters
-        to generate a model prediction.
-    </p>
+    st.write(
+        "An intelligent prediction system powered by "
+        "Machine Learning. Enter patient health parameters "
+        "to generate a model prediction."
+    )
 
-</div>
-""", unsafe_allow_html=True)
+    st.caption(
+        "CARDIOCARE | MACHINE LEARNING PROJECT"
+    )
 
 
 # =====================================================
 # 5. INTRODUCTION
 # =====================================================
 
-st.markdown(
-    "<div class='section-heading'>Patient Assessment</div>",
-    unsafe_allow_html=True
-)
+st.subheader("Patient Health Assessment")
 
-st.markdown(
-    "<div class='section-description'>"
-    "Enter all 13 parameters required by the trained model."
-    "</div>",
-    unsafe_allow_html=True
+st.write(
+    "Enter the 13 patient parameters required by "
+    "your trained machine learning model."
 )
 
 
@@ -390,18 +255,7 @@ st.markdown(
 
 with st.form("prediction_form"):
 
-    # Personal details
-    st.markdown(
-        "<div class='section-heading'>👤 Personal Information</div>",
-        unsafe_allow_html=True
-    )
-
-    st.markdown(
-        "<div class='section-description'>"
-        "Basic patient details and measurements."
-        "</div>",
-        unsafe_allow_html=True
-    )
+    st.subheader("👤 Personal Information")
 
     col1, col2 = st.columns(2)
 
@@ -450,18 +304,7 @@ with st.form("prediction_form"):
 
     st.divider()
 
-    # Cardiovascular parameters
-    st.markdown(
-        "<div class='section-heading'>🫀 Cardiovascular Parameters</div>",
-        unsafe_allow_html=True
-    )
-
-    st.markdown(
-        "<div class='section-description'>"
-        "Enter the cardiovascular and exercise-related features."
-        "</div>",
-        unsafe_allow_html=True
-    )
+    st.subheader("🫀 Cardiovascular Parameters")
 
     col1, col2 = st.columns(2)
 
@@ -488,8 +331,6 @@ with st.form("prediction_form"):
 
         oldpeak = st.number_input(
             "Oldpeak",
-            min_value=-5.0,
-            max_value=10.0,
             value=1.0,
             step=0.1
         )
@@ -501,18 +342,7 @@ with st.form("prediction_form"):
 
     st.divider()
 
-    # Additional parameters
-    st.markdown(
-        "<div class='section-heading'>🔬 Additional Parameters</div>",
-        unsafe_allow_html=True
-    )
-
-    st.markdown(
-        "<div class='section-description'>"
-        "Additional model input features."
-        "</div>",
-        unsafe_allow_html=True
-    )
+    st.subheader("🔬 Additional Parameters")
 
     col1, col2 = st.columns(2)
 
@@ -533,22 +363,20 @@ with st.form("prediction_form"):
     st.write("")
 
     submit = st.form_submit_button(
-        "🔍  Generate Prediction",
+        "🔍 Generate Prediction",
         use_container_width=True
     )
 
 
 # =====================================================
-# 7. PREDICTION PIPELINE
+# 7. PREDICTION LOGIC
 # =====================================================
 
 if submit:
 
     try:
 
-        with st.spinner(
-            "Processing patient information and generating prediction..."
-        ):
+        with st.spinner("Generating prediction..."):
 
             # Create CustomData object
             data = CustomData(
@@ -578,56 +406,33 @@ if submit:
 
             result = int(prediction[0])
 
-        # =============================================
-        # 8. DISPLAY PREDICTION RESULT
-        # =============================================
+        # =================================================
+        # 8. DISPLAY RESULTS
+        # =================================================
 
         st.divider()
 
-        st.markdown(
-            "<div class='section-heading'>"
-            "📊 Prediction Results"
-            "</div>",
-            unsafe_allow_html=True
-        )
+        st.subheader("📊 Prediction Results")
 
         if result == 0:
 
-            st.markdown("""
-            <div class="result-card result-negative">
+            st.success(
+                "✅ Heart Disease Not Predicted"
+            )
 
-                <div class="result-icon">✅</div>
-
-                <div class="result-title" style="color:#58D6AA;">
-                    Heart Disease Not Predicted
-                </div>
-
-                <p class="result-description">
-                    The trained machine learning model returned
-                    prediction class 0 for the supplied input.
-                </p>
-
-            </div>
-            """, unsafe_allow_html=True)
+            st.write(
+                "The trained model returned prediction class 0."
+            )
 
         elif result == 1:
 
-            st.markdown("""
-            <div class="result-card result-positive">
+            st.error(
+                "⚠️ Heart Disease Predicted"
+            )
 
-                <div class="result-icon">⚠️</div>
-
-                <div class="result-title" style="color:#FF929D;">
-                    Heart Disease Predicted
-                </div>
-
-                <p class="result-description">
-                    The trained machine learning model returned
-                    prediction class 1 for the supplied input.
-                </p>
-
-            </div>
-            """, unsafe_allow_html=True)
+            st.write(
+                "The trained model returned prediction class 1."
+            )
 
         else:
 
@@ -635,10 +440,7 @@ if submit:
                 f"Unexpected model output: {result}"
             )
 
-        # =============================================
-        # 9. INPUT SUMMARY
-        # =============================================
-
+        # Display input information
         with st.expander("📋 View Patient Input Details"):
 
             st.dataframe(
@@ -653,33 +455,27 @@ if submit:
             "An error occurred while generating the prediction."
         )
 
-        with st.expander("View error details"):
+        with st.expander("View Error Details"):
 
             st.exception(e)
 
 
 # =====================================================
-# 10. FOOTER
+# 9. FOOTER
 # =====================================================
 
 st.divider()
 
-st.markdown("""
-<div class="footer">
+st.caption(
+    "❤️ CardioCare | Heart Disease Prediction System"
+)
 
-    <strong style="color:#43D5E4;">
-        CardioCare | Heart Disease Prediction System
-    </strong>
+st.caption(
+    "Built using Python, Streamlit and Machine Learning."
+)
 
-    <br>
-
-    Built with Python, Streamlit and Machine Learning.
-
-    <br><br>
-
-    Educational demonstration only. This application is
-    not a medical diagnostic tool and must not be used
-    to make medical decisions.
-
-</div>
-""", unsafe_allow_html=True)
+st.warning(
+    "Educational demonstration only. This application "
+    "is not a medical diagnostic tool. Do not use its "
+    "predictions to make medical decisions."
+)
