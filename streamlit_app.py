@@ -16,7 +16,7 @@ st.set_page_config(
     page_title="CardioCare | Heart Disease Prediction",
     page_icon="❤️",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
 
@@ -27,35 +27,22 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-/* Main background */
+/* Main application */
 .stApp {
     background-color: #0B1220;
     color: #E5EDF7;
 }
 
-/* Main content width */
+/* Main container */
 .block-container {
     max-width: 1200px;
     padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
 }
 
-/* Hide Streamlit top toolbar controls except GitHub link */
-[data-testid="stToolbar"] button[aria-label*="Share"],
-[data-testid="stToolbar"] button[title*="Share"],
-[data-testid="stToolbar"] button[aria-label*="Star"],
-[data-testid="stToolbar"] button[title*="Star"],
-[data-testid="stToolbar"] button[aria-label*="Edit"],
-[data-testid="stToolbar"] button[title*="Edit"],
-[data-testid="stToolbar"] button[aria-label*="menu"],
-[data-testid="stToolbar"] button[title*="menu"],
-[data-testid="stToolbar"] button[data-testid="stMainMenu"] {
-    display: none !important;
-}
-
-/* Hide sidebar */
-[data-testid="stSidebar"] {
-    display: none !important;
+/* Text */
+.stApp p {
+    color: #C5D2E3;
 }
 
 /* Headings */
@@ -65,36 +52,20 @@ st.markdown("""
     color: #F1F5F9;
 }
 
-/* Paragraphs */
-.stApp p {
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background-color: #111D30;
+    border-right: 1px solid #263A54;
+}
+
+/* Sidebar text */
+[data-testid="stSidebar"] p {
     color: #C5D2E3;
 }
 
 /* Hero container */
-.hero-box {
-    background: #142A43;
-    border: 1px solid #24536A;
-    border-radius: 18px;
-    padding: 32px;
-    margin-bottom: 25px;
-}
-
-.hero-box h1 {
-    color: #FFFFFF !important;
-    font-size: 34px;
-    font-weight: 800;
-}
-
-.hero-box p {
-    color: #B9DCEB !important;
-    font-size: 15px;
-    line-height: 1.7;
-}
-
-/* Section headings */
-.stApp h2,
-.stApp h3 {
-    color: #E8F3FC;
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    border-color: #2A405B;
 }
 
 /* Form */
@@ -110,100 +81,83 @@ st.markdown("""
     color: #D5E2EF !important;
 }
 
+/* Number inputs */
+.stApp input {
+    color: #FFFFFF !important;
+}
+
 /* Input fields */
 .stApp div[data-baseweb="input"] {
     background-color: #17263B;
-    border: 1px solid #344A65;
-    border-radius: 8px;
+    border-color: #344A65;
 }
 
-.stApp input {
-    color: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
-}
-
-/* Dropdowns */
+/* Select boxes */
 .stApp div[data-baseweb="select"] > div {
-    background-color: #17263B !important;
-    border-color: #344A65 !important;
-    color: #FFFFFF !important;
-}
-
-.stApp div[data-baseweb="select"] * {
-    color: #FFFFFF !important;
-}
-
-/* Dropdown options */
-div[data-baseweb="popover"],
-div[data-baseweb="menu"] {
-    background-color: #17263B !important;
-}
-
-div[data-baseweb="menu"] li {
-    color: #FFFFFF !important;
+    background-color: #17263B;
+    border-color: #344A65;
 }
 
 /* Buttons */
+.stButton button,
 .stFormSubmitButton button {
-    background-color: #16B8CC !important;
-    color: #071522 !important;
-    border: none !important;
-    border-radius: 10px !important;
-    min-height: 48px;
-    font-weight: 750 !important;
+    background-color: #16B8CC;
+    color: #071522;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    min-height: 46px;
 }
 
+.stButton button:hover,
 .stFormSubmitButton button:hover {
-    background-color: #43D5E4 !important;
-    color: #071522 !important;
+    background-color: #43D5E4;
+    color: #071522;
+    border: none;
 }
 
 /* Divider */
 hr {
-    border-color: #293B53 !important;
+    border-color: #293B53;
 }
 
-/* Result cards */
-.result-card {
-    padding: 28px;
-    border-radius: 16px;
-    margin-top: 20px;
-    text-align: center;
+/* Metric cards */
+[data-testid="stMetric"] {
+    background-color: #14243A;
+    border: 1px solid #2A405B;
+    border-radius: 12px;
+    padding: 15px;
 }
 
-.result-success {
-    background-color: #102E2C;
-    border: 1px solid #238B79;
+[data-testid="stMetricLabel"] {
+    color: #A9BDD2;
 }
 
-.result-warning {
-    background-color: #382329;
-    border: 1px solid #B85B68;
+[data-testid="stMetricValue"] {
+    color: #43D5E4;
 }
 
-.result-card h2 {
-    font-size: 25px;
-    font-weight: 800;
+/* Expanders */
+[data-testid="stExpander"] {
+    background-color: #111D30;
+    border: 1px solid #263A54;
+    border-radius: 10px;
 }
 
-.result-card p {
-    color: #D2DCE8 !important;
+/* Alerts */
+.stAlert {
+    border-radius: 12px;
 }
 
-.footer-text {
-    color: #8296AC;
-    font-size: 12px;
-    text-align: center;
+/* Footer */
+footer {
+    visibility: hidden;
 }
 
-/* Mobile layout */
+/* Mobile */
 @media (max-width: 768px) {
-    .hero-box {
-        padding: 20px;
-    }
-
-    .hero-box h1 {
-        font-size: 25px;
+    .block-container {
+        padding: 1rem;
     }
 
     [data-testid="stForm"] {
@@ -216,30 +170,75 @@ hr {
 
 
 # =====================================================
-# 3. HERO SECTION
+# 3. SIDEBAR
 # =====================================================
 
-st.markdown("""
-<div class="hero-box">
+with st.sidebar:
 
-    <p style="color:#43D5E4;">
-        MACHINE LEARNING • HEALTHCARE
-    </p>
+    st.title("❤️ CardioCare")
 
-    <h1>❤️ Heart Disease Prediction</h1>
+    st.caption("HEART DISEASE PREDICTION")
 
-    <p>
-        An intelligent prediction system powered by
-        Machine Learning. Enter patient health parameters
-        to generate a model prediction.
-    </p>
+    st.divider()
 
-</div>
-""", unsafe_allow_html=True)
+    st.subheader("About Project")
+
+    st.write(
+        "CardioCare is a machine learning application "
+        "that analyzes patient health parameters and "
+        "generates a heart disease prediction."
+    )
+
+    st.divider()
+
+    st.subheader("Technology Stack")
+
+    st.markdown("""
+    - Python
+    - Streamlit
+    - Pandas
+    - Scikit-learn
+    - Support Vector Classifier
+    """)
+
+    st.divider()
+
+    st.subheader("Model Information")
+
+    st.write("**Algorithm:** SVC")
+
+    st.write("**Input Features:** 13")
+
+    st.write("**Task:** Binary Classification")
+
+    st.divider()
+
+    st.caption("Academic Machine Learning Project")
 
 
 # =====================================================
-# 4. INTRODUCTION
+# 4. HERO SECTION
+# =====================================================
+
+with st.container(border=True):
+
+    st.caption("MACHINE LEARNING  •  HEALTHCARE")
+
+    st.title("❤️ Heart Disease Prediction")
+
+    st.write(
+        "An intelligent prediction system powered by "
+        "Machine Learning. Enter patient health parameters "
+        "to generate a model prediction."
+    )
+
+    st.caption(
+        "CARDIOCARE | MACHINE LEARNING PROJECT"
+    )
+
+
+# =====================================================
+# 5. INTRODUCTION
 # =====================================================
 
 st.subheader("Patient Health Assessment")
@@ -251,7 +250,7 @@ st.write(
 
 
 # =====================================================
-# 5. PATIENT INPUT FORM
+# 6. PATIENT INPUT FORM
 # =====================================================
 
 with st.form("prediction_form"):
@@ -370,7 +369,7 @@ with st.form("prediction_form"):
 
 
 # =====================================================
-# 6. PREDICTION LOGIC
+# 7. PREDICTION LOGIC
 # =====================================================
 
 if submit:
@@ -408,7 +407,7 @@ if submit:
             result = int(prediction[0])
 
         # =================================================
-        # 7. DISPLAY RESULTS
+        # 8. DISPLAY RESULTS
         # =================================================
 
         st.divider()
@@ -417,7 +416,9 @@ if submit:
 
         if result == 0:
 
-            st.success("✅ Heart Disease Not Predicted")
+            st.success(
+                "✅ Heart Disease Not Predicted"
+            )
 
             st.write(
                 "The trained model returned prediction class 0."
@@ -425,7 +426,9 @@ if submit:
 
         elif result == 1:
 
-            st.error("⚠️ Heart Disease Predicted")
+            st.error(
+                "⚠️ Heart Disease Predicted"
+            )
 
             st.write(
                 "The trained model returned prediction class 1."
@@ -437,7 +440,7 @@ if submit:
                 f"Unexpected model output: {result}"
             )
 
-        # Display patient information
+        # Display input information
         with st.expander("📋 View Patient Input Details"):
 
             st.dataframe(
@@ -458,18 +461,17 @@ if submit:
 
 
 # =====================================================
-# 8. FOOTER
+# 9. FOOTER
 # =====================================================
 
 st.divider()
 
-st.markdown(
-    "<p class='footer-text'>"
+st.caption(
     "❤️ CardioCare | Heart Disease Prediction System"
-    "<br><br>"
+)
+
+st.caption(
     "Built using Python, Streamlit and Machine Learning."
-    "</p>",
-    unsafe_allow_html=True
 )
 
 st.warning(
